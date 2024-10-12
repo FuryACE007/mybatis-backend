@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f36732-7898-46af-81d0-763b68e51b4d" name="Changes" comment="Merge conflict resoleved">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/fidelity/restcontroller/TradeControllerE2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/fidelity/restcontroller/TradeControllerE2ETest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/fidelity/restcontroller/TradeControllerWebLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/fidelity/restcontroller/TradeControllerWebLayerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="43f36732-7898-46af-81d0-763b68e51b4d" name="Changes" comment="Merge conflict resoleved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

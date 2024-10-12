@@ -92,4 +92,51 @@ public class TradeControllerWebLayerTest {
 
         response.andExpect(status().isInternalServerError());
     }
+
+    @Test
+    void placeOrder_ShouldReturnBadRequest_WhenClientMappingInvalid() throws Exception {
+        Order order = new Order("AAPL", 100, new BigDecimal("150.00"), Direction.BUY, -1); // Invalid client ID
+
+        ResultActions response = mockMvc.perform(post("/api/trades")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(order)));
+
+        response.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void placeOrder_ShouldReturnInternalServerError_WhenServerError() throws Exception {
+        Order order = new Order("AAPL", 100, new BigDecimal("150.00"), Direction.BUY, 1);
+        when(tradeService.processOrderRequest(any(Order.class))).thenThrow(new RuntimeException("Simulated server error"));
+
+        ResultActions response = mockMvc.perform(post("/api/trades")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(order)));
+
+        response.andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void placeOrder_ShouldReturnBadRequest_WhenErrorAddingTrade() throws Exception {
+        Order order = new Order("AAPL", 100, new BigDecimal("150.00"), Direction.BUY, 1);
+        when(tradeService.processOrderRequest(any(Order.class))).thenThrow(new Exception("Error adding trade"));
+
+        ResultActions response = mockMvc.perform(post("/api/trades")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(order)));
+
+        response.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void placeOrder_ShouldReturnOk_WhenTradeAddSuccessful() throws Exception {
+        Order order = new Order("AAPL", 100, new BigDecimal("150.00"), Direction.BUY, 1);
+        when(tradeService.processOrderRequest(any(Order.class))).thenReturn(true);
+
+        ResultActions response = mockMvc.perform(post("/api/trades")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(order)));
+
+        response.andExpect(status().isOk());
+    }
 }
