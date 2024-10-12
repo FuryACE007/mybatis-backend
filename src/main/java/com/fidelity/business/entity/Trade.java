@@ -5,7 +5,7 @@ import com.fidelity.business.enums.Direction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
+import java.util.UUID;
 
 
 public class Trade {
@@ -18,6 +18,24 @@ public class Trade {
     private String tradeId;
     private LocalDateTime timeStamp;
     private BigDecimal executionPrice;
+
+    public Trade(){
+        this.tradeId = UUID.randomUUID().toString();
+    }
+
+    public Trade(Order order,BigDecimal cashValue,int quantity,Direction direction,
+                 String instrumentId,int clientId,LocalDateTime timeStamp,
+                 BigDecimal executionPrice){
+        this.tradeId = UUID.randomUUID().toString();
+        this.order = order;
+        this.cashValue = cashValue;
+        this.quantity = quantity;
+        this.direction = direction;
+        this.clientId = clientId;
+        this.instrumentId = instrumentId;
+        this.timeStamp = timeStamp;
+        this.executionPrice = executionPrice;
+    }
 
     public Order getOrder() {
         return order;
@@ -88,23 +106,6 @@ public class Trade {
     }
 
     public void setExecutionPrice(BigDecimal executionPrice) {
-        this.executionPrice = executionPrice;
-    }
-
-    Trade(){
-    }
-
-    public Trade(Order order,BigDecimal cashValue,int quantity,Direction direction,
-                 String instrumentId,int clientId,String tradeId,LocalDateTime timeStamp,
-                 BigDecimal executionPrice){
-        this.tradeId = tradeId;
-        this.order = order;
-        this.cashValue = cashValue;
-        this.quantity = quantity;
-        this.direction = direction;
-        this.clientId = clientId;
-        this.instrumentId = instrumentId;
-        this.timeStamp = timeStamp;
         this.executionPrice = executionPrice;
     }
 

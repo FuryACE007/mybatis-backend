@@ -146,4 +146,32 @@ public class Client {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id == client.id && Objects.equals(name, client.name) && Objects.equals(country, client.country) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob) && Objects.equals(postalCode, client.postalCode) && Objects.equals(password, client.password) && Objects.equals(identities, client.identities) && Objects.equals(cashValue, client.cashValue) && Objects.equals(preference, client.preference);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, country, email, id, dob, postalCode, password, identities, cashValue, preference);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", email='" + email + '\'' +
+                ", id=" + id +
+                ", dob=" + dob +
+                ", postalCode='" + postalCode + '\'' +
+                ", password='" + password + '\'' +
+                ", identities=" + identities +
+                ", cashValue=" + cashValue +
+                ", preference=" + preference +
+                '}';
+    }
 }

@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43f36732-7898-46af-81d0-763b68e51b4d" name="Changes" comment="Merge conflict resoleved">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/PriceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/impl/PriceDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/mapper/PriceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/service/PriceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/service/impl/PriceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/ClientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/ClientDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/impl/ClientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/impl/ClientDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/business/entity/Trade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/integration/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/restcontroller/TradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/restcontroller/TradeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/service/TradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/service/TradeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fidelity/service/impl/TradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fidelity/service/impl/TradeServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Exception" />
         <option value="Interface" />
         <option value="Class" />
       </list>

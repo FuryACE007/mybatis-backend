@@ -1,11 +1,15 @@
 package com.fidelity.service.impl;
 
 import com.fidelity.business.entity.Client;
+import com.fidelity.business.entity.Order;
 import com.fidelity.business.entity.Trade;
 import com.fidelity.business.enums.Direction;
+import com.fidelity.exceptions.InsufficientFundsException;
+import com.fidelity.exceptions.InsufficientInstrumentsException;
 import com.fidelity.integration.ClientDao;
 import com.fidelity.integration.OrderDao;
 import com.fidelity.integration.impl.TradeDaoImpl;
+import com.fidelity.service.PriceService;
 import com.fidelity.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.time.LocalDateTime;
 
 @Service
 public class TradeServiceImpl implements TradeService {
@@ -24,6 +29,9 @@ public class TradeServiceImpl implements TradeService {
 
     @Autowired
     private ClientDao clientDao;
+
+    @Autowired
+    private PriceService priceService;
 
     @Override
     public List<Trade> getTradeHistory(Client client) {
@@ -47,39 +55,38 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     @Transactional
-    public boolean processTradeRequest(Trade trade, BigDecimal askPrice) throws Exception {
-        // Check if client has enough balance for buying
-        if (trade.getDirection() == Direction.BUY) {
-            BigDecimal requiredBalance = trade.getCashValue();
-            BigDecimal clientBalance = clientDao.getClientCashBalance(trade.getClientId());
+    public boolean processOrderRequest(Order order) throws Exception {
+        // Check if client has enough balance for buying or enough instruments for selling
+        if (order.getDirection() == Direction.BUY) {
+            BigDecimal requiredBalance = order.getTargetPrice().multiply(new BigDecimal(order.getQuantity()));
+            BigDecimal clientBalance = clientDao.getClientCashBalance(order.getClientId());
             if (clientBalance.compareTo(requiredBalance) < 0) {
                 throw new InsufficientFundsException("Client does not have enough balance for this trade");
             }
-        }
-        
-        // Check if client has enough quantity for selling
-        if (trade.getDirection() == Direction.SELL) {
-            int requiredQuantity = trade.getQuantity();
-            int clientQuantity = clientDao.getClientInstrumentQuantity(trade.getClientId(), trade.getInstrumentId());
-            if (clientQuantity < requiredQuantity) {
+        } else {
+            int clientQuantity = clientDao.getClientInstrumentQuantity(order.getClientId(), order.getInstrumentId());
+            if (clientQuantity < order.getQuantity()) {
                 throw new InsufficientInstrumentsException("Client does not have enough instruments for this trade");
             }
         }
 
-        // Existing code for order insertion
-        boolean orderInserted = orderDao.insertOrder(trade.getOrder(), askPrice);
+        // Insert order
+        boolean orderInserted = orderDao.insertOrder(order);
         if (!orderInserted) {
             return false;
         }
 
-        // Existing code for trade insertion
-        insertTrade(trade);
+        // Create and insert trade
+        Trade trade = new Trade(order, order.getTargetPrice().multiply(new BigDecimal(order.getQuantity())),
+                order.getQuantity(), order.getDirection(), order.getInstrumentId(), order.getClientId(),
+                LocalDateTime.now(), order.getTargetPrice());
+        tradeDao.insertTrade(trade);
 
-        // Existing code for portfolio and cash balance update
-        BigDecimal cashValueChange = trade.getDirection() == Direction.BUY ? 
-            trade.getCashValue().negate() : trade.getCashValue();
-        clientDao.updateClientPortfolio(trade.getClientId(), trade.getInstrumentId(), trade.getQuantity(), trade.getDirection(), cashValueChange);
-        clientDao.updateClientCashBalance(trade.getClientId(), cashValueChange);
+        // Update client portfolio and cash balance
+        BigDecimal cashValueChange = order.getDirection() == Direction.BUY ?
+                trade.getCashValue().negate() : trade.getCashValue();
+        clientDao.updateClientPortfolio(order.getClientId(), order.getInstrumentId(), order.getQuantity(), order.getDirection(), cashValueChange);
+        clientDao.updateClientCashBalance(order.getClientId(), cashValueChange);
 
         return true;
     }

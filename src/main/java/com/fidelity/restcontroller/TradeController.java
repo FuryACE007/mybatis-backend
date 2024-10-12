@@ -1,6 +1,6 @@
 package com.fidelity.restcontroller;
 
-import com.fidelity.business.entity.Trade;
+import com.fidelity.business.entity.Order;
 import com.fidelity.service.TradeService;
 import com.fidelity.exceptions.InsufficientFundsException;
 import com.fidelity.exceptions.InsufficientInstrumentsException;
@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/trades")
@@ -19,18 +17,18 @@ public class TradeController {
     private TradeService tradeService;
 
     @PostMapping
-    public ResponseEntity<String> createTrade(@RequestBody Trade trade, @RequestParam BigDecimal askPrice) {
+    public ResponseEntity<String> placeOrder(@RequestBody Order order) {
         try {
-            boolean success = tradeService.processTradeRequest(trade, askPrice);
+            boolean success = tradeService.processOrderRequest(order);
             if (success) {
-                return ResponseEntity.ok("Trade processed successfully");
+                return ResponseEntity.ok("Order processed successfully");
             } else {
-                return ResponseEntity.badRequest().body("Trade could not be processed due to price mismatch");
+                return ResponseEntity.badRequest().body("Order could not be processed due to price mismatch");
             }
         } catch (InsufficientFundsException | InsufficientInstrumentsException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error processing trade: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error processing order: " + e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing trade: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing order: " + e.getMessage());
         }
     }
 }

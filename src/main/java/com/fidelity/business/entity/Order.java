@@ -12,13 +12,14 @@ public class Order {
     private int quantity;
     private BigDecimal targetPrice;
     private Direction direction;
-    private String clientId;
+    private int clientId;
     private String orderId;
 
     public Order() {
+        this.orderId = UUID.randomUUID().toString();
     }
 
-    public Order(String instrumentId, int quantity, BigDecimal targetPrice, Direction direction, String clientId) {
+    public Order(String instrumentId, int quantity, BigDecimal targetPrice, Direction direction, int clientId) {
         this.instrumentId = instrumentId;
         this.quantity = quantity;
         this.targetPrice = targetPrice;
@@ -59,11 +60,11 @@ public class Order {
         this.direction = direction;
     }
 
-    public String getClientId() {
+    public int getClientId() {
         return clientId;
     }
 
-    public void setClientId(String clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
     }
 
@@ -71,9 +72,9 @@ public class Order {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
+//    public void setOrderId(String orderId) {
+//        this.orderId = orderId;
+//    }
 
     @Override
     public boolean equals(Object o) {
