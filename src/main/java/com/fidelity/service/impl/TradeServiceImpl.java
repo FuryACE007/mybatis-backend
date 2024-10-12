@@ -64,8 +64,8 @@ public class TradeServiceImpl implements TradeService {
                 throw new InsufficientFundsException("Client does not have enough balance for this trade");
             }
         } else {
-            int clientQuantity = clientDao.getClientInstrumentQuantity(order.getClientId(), order.getInstrumentId());
-            if (clientQuantity < order.getQuantity()) {
+            Integer clientQuantity = clientDao.getClientInstrumentQuantity(order.getClientId(), order.getInstrumentId());
+            if (clientQuantity == null || clientQuantity < order.getQuantity()) {
                 throw new InsufficientInstrumentsException("Client does not have enough instruments for this trade");
             }
         }

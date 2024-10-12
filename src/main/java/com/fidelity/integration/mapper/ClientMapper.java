@@ -113,9 +113,7 @@ public interface ClientMapper {
     @Select("SELECT cashValue FROM Client WHERE id = #{clientId}")
     BigDecimal getClientCashBalance(int clientId);
 
-    @Select("SELECT quantity FROM Portfolio WHERE clientId = #{clientId} AND instrumentId = #{instrumentId}")
-    int getClientInstrumentQuantity(int clientId, String instrumentId);
-
-
+    @Select("SELECT COALESCE(quantity, 0) FROM Portfolio WHERE clientId = #{clientId} AND instrumentId = #{instrumentId}")
+    Integer getClientInstrumentQuantity(@Param("clientId") int clientId, @Param("instrumentId") String instrumentId);
 
 }

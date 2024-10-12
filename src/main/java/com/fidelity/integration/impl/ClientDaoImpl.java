@@ -160,7 +160,7 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     @Override
-    public int getClientInstrumentQuantity(int clientId, String instrumentId) {
+    public Integer getClientInstrumentQuantity(int clientId, String instrumentId) {
         return mapper.getClientInstrumentQuantity(clientId, instrumentId);
     }
 

@@ -21,5 +21,5 @@ public interface ClientDao {
     void updateClientPortfolio(int clientId, String instrumentId, int quantity, Direction direction, BigDecimal cashValueChange);
     void updateClientCashBalance(int clientId, BigDecimal cashValueChange);
     BigDecimal getClientCashBalance(int clientId);
-    int getClientInstrumentQuantity(int clientId, String instrumentId);
+    Integer getClientInstrumentQuantity(int clientId, String instrumentId);
 }
