@@ -91,9 +91,9 @@ public interface ClientMapper {
 
     // Update client portfolio and cash value
     @Update("""
-    UPDATE Portfolio SET 
+    UPDATE Portfolio SET
     quantity = quantity + #{quantityChange},
-    cashValue = cashValue + #{cashValueChange} 
+    cashValue = cashValue + #{cashValueChange}
     WHERE clientId = #{clientId} AND instrumentId = #{instrumentId}
     """)
     void updateClientPortfolio(@Param("clientId") int clientId, 
