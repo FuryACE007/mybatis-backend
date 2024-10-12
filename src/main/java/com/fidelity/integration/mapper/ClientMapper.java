@@ -90,14 +90,16 @@ public interface ClientMapper {
     InstrumentHistData processResultSetForMktData();
 
     // Update client portfolio and cash value
-    @Update("UPDATE ClientPortfolio cp " +
-            "SET cp.quantity = cp.quantity + #{quantityChange}, " +
-            "    cp.cashValue = cp.cashValue + #{cashValueChange} " +
-            "WHERE cp.clientId = #{clientId} AND cp.instrumentId = #{instrumentId}")
+    @Update("""
+    UPDATE Portfolio SET 
+    quantity = quantity + #{quantityChange},
+    cashValue = cashValue + #{cashValueChange} 
+    WHERE clientId = #{clientId} AND instrumentId = #{instrumentId}
+    """)
     void updateClientPortfolio(@Param("clientId") int clientId, 
-                               @Param("instrumentId") String instrumentId, 
-                               @Param("quantityChange") int quantityChange,
-                               @Param("cashValueChange") BigDecimal cashValueChange);
+                                @Param("instrumentId") String instrumentId, 
+                                @Param("quantityChange") int quantityChange,
+                                @Param("cashValueChange") BigDecimal cashValueChange);
 
 
     // Update client cash balance
@@ -105,6 +107,15 @@ public interface ClientMapper {
             "WHERE id = #{clientId}")
     void updateClientCashBalance(@Param("clientId") int clientId, 
                                  @Param("cashValueChange") BigDecimal cashValueChange);
+
+
+
+    @Select("SELECT cashValue FROM Client WHERE id = #{clientId}")
+    BigDecimal getClientCashBalance(int clientId);
+
+    @Select("SELECT quantity FROM Portfolio WHERE clientId = #{clientId} AND instrumentId = #{instrumentId}")
+    int getClientInstrumentQuantity(int clientId, String instrumentId);
+
 
 
 }

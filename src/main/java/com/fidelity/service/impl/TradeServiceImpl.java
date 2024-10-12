@@ -48,21 +48,37 @@ public class TradeServiceImpl implements TradeService {
     @Override
     @Transactional
     public boolean processTradeRequest(Trade trade, BigDecimal askPrice) throws Exception {
-        // Step 1: Create and insert order
+        // Check if client has enough balance for buying
+        if (trade.getDirection() == Direction.BUY) {
+            BigDecimal requiredBalance = trade.getCashValue();
+            BigDecimal clientBalance = clientDao.getClientCashBalance(trade.getClientId());
+            if (clientBalance.compareTo(requiredBalance) < 0) {
+                throw new InsufficientFundsException("Client does not have enough balance for this trade");
+            }
+        }
+        
+        // Check if client has enough quantity for selling
+        if (trade.getDirection() == Direction.SELL) {
+            int requiredQuantity = trade.getQuantity();
+            int clientQuantity = clientDao.getClientInstrumentQuantity(trade.getClientId(), trade.getInstrumentId());
+            if (clientQuantity < requiredQuantity) {
+                throw new InsufficientInstrumentsException("Client does not have enough instruments for this trade");
+            }
+        }
+
+        // Existing code for order insertion
         boolean orderInserted = orderDao.insertOrder(trade.getOrder(), askPrice);
         if (!orderInserted) {
             return false;
         }
 
-        // Step 2: Insert trade
+        // Existing code for trade insertion
         insertTrade(trade);
 
-        // Step 3: Update client portfolio
+        // Existing code for portfolio and cash balance update
         BigDecimal cashValueChange = trade.getDirection() == Direction.BUY ? 
             trade.getCashValue().negate() : trade.getCashValue();
         clientDao.updateClientPortfolio(trade.getClientId(), trade.getInstrumentId(), trade.getQuantity(), trade.getDirection(), cashValueChange);
-
-        // Step 4: Update client cash balance
         clientDao.updateClientCashBalance(trade.getClientId(), cashValueChange);
 
         return true;

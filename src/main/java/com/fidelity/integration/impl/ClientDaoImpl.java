@@ -154,6 +154,16 @@ public class ClientDaoImpl implements ClientDao {
         mapper.updateClientCashBalance(clientId, cashValueChange);
     }
 
+    @Override
+    public BigDecimal getClientCashBalance(int clientId) {
+        return mapper.getClientCashBalance(clientId);
+    }
+
+    @Override
+    public int getClientInstrumentQuantity(int clientId, String instrumentId) {
+        return mapper.getClientInstrumentQuantity(clientId, instrumentId);
+    }
+
 }
 
 

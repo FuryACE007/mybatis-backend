@@ -2,6 +2,8 @@ package com.fidelity.restcontroller;
 
 import com.fidelity.business.entity.Trade;
 import com.fidelity.service.TradeService;
+import com.fidelity.exceptions.InsufficientFundsException;
+import com.fidelity.exceptions.InsufficientInstrumentsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,8 @@ public class TradeController {
             } else {
                 return ResponseEntity.badRequest().body("Trade could not be processed due to price mismatch");
             }
+        } catch (InsufficientFundsException | InsufficientInstrumentsException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error processing trade: " + e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing trade: " + e.getMessage());
         }
