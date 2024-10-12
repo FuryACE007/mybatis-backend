@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="43f36732-7898-46af-81d0-763b68e51b4d" name="Changes" comment="Merge conflict resoleved">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="java in MyBatisWithSpringDML" />
+    </enabled-run-configurations>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2mhoA2zwVySYlCi0mKdDeP0QSLi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.ClientImpTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientImpTest.testGetAllClients.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientImpTest.testInsertClient.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testGetClientPortfolioReturnsNullForNonExistentUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testGetClientPortfolioWithDatabaseError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testGetClientPortfolioWithInvalidClientId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testGetClientPortfolioWithRealDao.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testGetClientPortfolioWithValidClientId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.testInsertClient.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.test_handles_nonexistent_client_id.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientServiceImplTest.test_returns_client_portfolio_for_valid_client_id.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in MyBatisWithSpringDML.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.MyBatisWithSpringDML [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;process-order&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects/java-component-mybatis&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.fidelity.service.impl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ClientServiceImplTest">
+    <configuration name="ClientImpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyBatisWithSpringDML" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fidelity.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fidelity.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.fidelity.integration.ClientImpTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyBatisWithSpringDML" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fidelity.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fidelity.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.fidelity.service.impl.ClientServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientServiceImplTest.testGetClientPortfolioReturnsNullForNonExistentUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyBatisWithSpringDML" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fidelity.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fidelity.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.fidelity.service.impl.ClientServiceImplTest" />
+      <option name="METHOD_NAME" value="testGetClientPortfolioReturnsNullForNonExistentUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientServiceImplTest.testGetClientPortfolioWithRealDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyBatisWithSpringDML" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fidelity.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fidelity.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.fidelity.service.impl.ClientServiceImplTest" />
+      <option name="METHOD_NAME" value="testGetClientPortfolioWithRealDao" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in MyBatisWithSpringDML" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyBatisWithSpringDML" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ClientServiceImplTest" />
+        <item itemvalue="JUnit.ClientServiceImplTest.testGetClientPortfolioReturnsNullForNonExistentUser" />
+        <item itemvalue="JUnit.ClientServiceImplTest.testGetClientPortfolioWithRealDao" />
+        <item itemvalue="JUnit.java in MyBatisWithSpringDML" />
+        <item itemvalue="JUnit.ClientImpTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="43f36732-7898-46af-81d0-763b68e51b4d" name="Changes" comment="" />
+      <created>1727538022654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727538022654</updated>
+      <workItem from="1727702186659" duration="10572000" />
+      <workItem from="1727753999426" duration="3866000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge conflict resoleved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge conflict resoleved" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MyBatisWithSpringDML$java_in_MyBatisWithSpringDML.ic" NAME="java in MyBatisWithSpringDML Coverage Results" MODIFIED="1727934759107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/java_component_mybatis$ClientServiceImplTest.ic" NAME="ClientServiceImplTest Coverage Results" MODIFIED="1727685335328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.fidelity.service.impl.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/java_component_mybatis$java_in_MyBatisWithSpringDML.ic" NAME="java in MyBatisWithSpringDML Coverage Results" MODIFIED="1727940969437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/MyBatisWithSpringDML$ClientServiceImplTest.ic" NAME="ClientServiceImplTest Coverage Results" MODIFIED="1727934299077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.fidelity.service.impl.*</FILTER>
+    </SUITE>
+  </component>
+</project>
